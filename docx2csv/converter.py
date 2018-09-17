@@ -108,5 +108,5 @@ def extract(filename, format='csv', sizefilter=0, singlefile=False, output=None)
             if lfilter >= len(t):
                 continue
             n += 1
-            destname = output if output else name + '.%s' % (format)
+            destname = name + '_%d.%s' % (n, format)
             __store_table(t, destname, format)
