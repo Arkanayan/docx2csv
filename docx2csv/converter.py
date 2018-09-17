@@ -34,7 +34,7 @@ def __store_table(tabdata, filename, format='csv'):
         f = open(filename, 'w')
         w = csv.writer(f, delimiter=',')
         for row in tabdata:
-            w.writerow(row)
+            w.writerow([row_data.decode() for row_data in row])
     elif format == 'xls':
         workbook = xlwt.Workbook()
         ws = __xls_table_to_sheet(tabdata, workbook.add_sheet('0'))
